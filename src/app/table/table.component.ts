@@ -9,8 +9,10 @@ import { SharedService } from 'src/services/SharedService';
 })
 export class TableComponent implements OnInit {
   newsList: NewsModel[] = [];
+  filteredNewsList: NewsModel[] = [];
   displayedColumns: string[] = ['id', 'title', 'image', 'date', 'actions'];
   editingRow: NewsModel | null = null;
+  searchTerm: string = ''; 
 
   constructor(private sharedService: SharedService) { }
 
@@ -21,7 +23,16 @@ export class TableComponent implements OnInit {
   fetchNewsList(): void {
     this.sharedService.getNewsList().subscribe((data) => {
       this.newsList = data;
+      this.filteredNewsList = data;
     });
+  }
+
+  applyFilter(): void {
+    const lowerCaseTerm = this.searchTerm.toLowerCase();
+    this.filteredNewsList = this.newsList.filter((news) =>
+      news.title.toLowerCase().includes(lowerCaseTerm) ||
+      news.image.toLowerCase().includes(lowerCaseTerm)
+    );
   }
 
   editRow(row: NewsModel): void {
