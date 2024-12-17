@@ -94,3 +94,70 @@
     </table>
   </div>
 </div>
+
+
+
+<!-- <div class="min-h-screen bg-gray-100 flex flex-col items-center justify-start p-8">
+  
+  <header class="w-full p-4 flex items-center justify-end">
+    <img src="assets/logo-single.png" alt="Logo" class="w-12 h-12 rounded-full" />
+  </header>
+
+  <div class="my-6 w-full max-w-md">
+    <mat-form-field class="w-full" appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Search" [(ngModel)]="searchTerm" (ngModelChange)="applyFilter()" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+
+  <div class="w-full max-w-4xl bg-white rounded-lg shadow-md p-4">
+    <nz-table #basicTable [nzData]="filteredNewsList" [nzPageSize]="10" [nzScroll]="{ y: '400px' }">
+      <thead>
+        <tr>
+          <th nzWidth="50px" class="bg-green-200">ID</th>
+          <th nzWidth="150px" class="bg-green-200">Title</th>
+          <th nzWidth="200px" class="bg-green-200">Content</th>
+          <th nzWidth="150px" class="bg-green-200">Image</th>
+          <th nzWidth="150px" class="bg-green-200">Date</th>
+          <th nzWidth="150px" class="bg-green-200">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of filteredNewsList">
+          <td>{{ row.id }}</td>
+          <td>
+            <nz-input [(ngModel)]="row.title" [nzDisabled]="editingRow?.id !== row.id"></nz-input>
+          </td>
+          <td>
+            <nz-input-textarea [(ngModel)]="row.content" [nzDisabled]="editingRow?.id !== row.id" [nzRows]="2"></nz-input-textarea>
+          </td>
+          <td>
+            <nz-select [(ngModel)]="row.image" [nzDisabled]="editingRow?.id !== row.id">
+              <nz-option nzValue="Image 1" nzLabel="Image 1"></nz-option>
+              <nz-option nzValue="Image 2" nzLabel="Image 2"></nz-option>
+            </nz-select>
+          </td>
+          <td>
+            <nz-date-picker [(ngModel)]="row.date" [nzDisabled]="editingRow?.id !== row.id"></nz-date-picker>
+          </td>
+          <td>
+            <div *ngIf="editingRow?.id === row.id; else defaultActions">
+              <button nz-button nzType="primary" class="mr-2" (click)="saveRow(row)">
+                Save
+              </button>
+              <button nz-button nzType="default" (click)="cancelEdit()">
+                Cancel
+              </button>
+            </div>
+            <ng-template #defaultActions>
+              <button nz-button nzType="dashed" (click)="editRow(row)">
+                Edit
+              </button>
+            </ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div> -->
