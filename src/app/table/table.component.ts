@@ -10,7 +10,7 @@ import { SharedService } from 'src/services/SharedService';
 export class TableComponent implements OnInit {
   newsList: NewsModel[] = [];
   filteredNewsList: NewsModel[] = [];
-  displayedColumns: string[] = ['id', 'title', 'image', 'date', 'actions'];
+  displayedColumns: string[] = ['id', 'title', 'content', 'image', 'date', 'actions'];
   editingRow: NewsModel | null = null;
   searchTerm: string = ''; 
 
@@ -31,9 +31,10 @@ export class TableComponent implements OnInit {
     const lowerCaseTerm = this.searchTerm.toLowerCase();
     this.filteredNewsList = this.newsList.filter((news) =>
       news.title.toLowerCase().includes(lowerCaseTerm) ||
-      news.image.toLowerCase().includes(lowerCaseTerm)
+      news.content.toLowerCase().includes(lowerCaseTerm)
     );
   }
+
 
   editRow(row: NewsModel): void {
     this.editingRow = { ...row };
