@@ -27,6 +27,8 @@ import { MatNativeDateModule } from '@angular/material/core'; // Material Date P
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NewCreateComponent } from './new-create/new-create.component'; // Material Date Picker Core
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+import { LayoutComponent } from './layout/layout.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -41,10 +43,12 @@ import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
     ContactUsComponent,
     FooterComponent,
     TableComponent,
-    NewCreateComponent
+    NewCreateComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot([]),
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
