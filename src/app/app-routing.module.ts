@@ -3,13 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { TableComponent } from './table/table.component';
 import { NewCreateComponent } from './new-create/new-create.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { LayoutComponent } from './layout/layout.component'; 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },  // Default route (home page)
-  { path: 'table', component: TableComponent },  // Route to the table component
-  { path: 'new-create', component: NewCreateComponent },
-  
+  {
+    path: '',
+    component: LayoutComponent, 
+    children: [
+      { path: '', component: HomeComponent },  
+      { path: 'table', component: TableComponent },
+      { path: 'new-create', component: NewCreateComponent },  
+      { path: 'news', loadChildren: () => import('./news/news.module').then(m => m.NewsModule) },
+    ]
+  },
 ];
 
 @NgModule({
