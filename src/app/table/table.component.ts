@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { NewsModel } from 'src/models/news.model';
 import { SharedService } from 'src/services/SharedService';
 
@@ -8,39 +7,36 @@ import { SharedService } from 'src/services/SharedService';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
 })
-export class TableComponent {
-
+export class TableComponent implements OnInit {
   newsList: NewsModel[] = [];
-
   displayedColumns: string[] = ['id', 'title', 'image', 'date', 'actions'];
-  rows = [
-    { id: 1, title: '', image: '', date: new Date() },
-    { id: 2, title: '', image: '', date: new Date() },
-    { id: 3, title: '', image: '', date: new Date() },
-    { id: 4, title: '', image: '', date: new Date() },
-  ];
-
-
-
-  editRow(row: any) {
-    console.log('Editing row:', row);
-  }
-
-  showDetails() {
-    console.log('Showing details for all rows:', this.rows);
-  }
+  editingRow: NewsModel | null = null;
 
   constructor(private sharedService: SharedService) { }
-  
+
   ngOnInit(): void {
     this.fetchNewsList();
   }
 
-   // Fetch the list of news
-   fetchNewsList(): void {
-    this.sharedService.getNewsList().subscribe(data => {
-      this.newsList = data;  
+  fetchNewsList(): void {
+    this.sharedService.getNewsList().subscribe((data) => {
+      this.newsList = data;
     });
+  }
 
+  editRow(row: NewsModel): void {
+    this.editingRow = { ...row };
+  }
+
+  saveRow(row: NewsModel): void {
+    this.sharedService.updateNews(row.id, row).subscribe(() => {
+      this.fetchNewsList();
+      this.editingRow = null;
+      console.log('News updated successfully');
+    });
+  }
+
+  cancelEdit(): void {
+    this.editingRow = null;
   }
 }
