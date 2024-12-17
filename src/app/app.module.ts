@@ -26,6 +26,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker'; // Material 
 import { MatNativeDateModule } from '@angular/material/core'; // Material Date Picker Core
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NewCreateComponent } from './new-create/new-create.component'; // Material Date Picker Core
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+
 
 @NgModule({
   declarations: [
@@ -59,7 +61,7 @@ import { NewCreateComponent } from './new-create/new-create.component'; // Mater
     MatNativeDateModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
