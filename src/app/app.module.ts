@@ -29,6 +29,8 @@ import { NewCreateComponent } from './new-create/new-create.component'; // Mater
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import { LayoutComponent } from './layout/layout.component';
 import { RouterModule } from '@angular/router';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+
 
 
 @NgModule({
@@ -48,6 +50,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     BrowserModule,
+    NzDrawerModule,
     RouterModule.forRoot([]),
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -63,7 +66,8 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
