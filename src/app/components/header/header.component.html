@@ -21,14 +21,14 @@
     <div class="flex items-center space-x-4">
       <button mat-button class="text-sm text-black bg-black" routerLink="/">Home</button>
       <button mat-button class="text-sm text-black" routerLink="/">Contacts</button>
-    <button nz-button nzType="primary" class="flex-end flex" (click)="open()">
-    
-      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="black">
-        <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
-      </svg>
-    </button>
-    
-    <!-- <div class="flex flex-row items-center gap-1 cursor-pointer" (click)="toggleSidenav()">
+      <button nz-button nzType="primary" class="flex-end flex" (click)="open()">
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="black">
+          <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
+        </svg>
+      </button>
+
+      <!-- <div class="flex flex-row items-center gap-1 cursor-pointer" (click)="toggleSidenav()">
         <mat-icon svgIcon="user" class="user"></mat-icon>
         <mat-icon svgIcon="arrow-down" class="arrow-down"></mat-icon>
       </div> -->
@@ -63,7 +63,7 @@
     <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer" routerLink="/table">
       <span>Table </span>
     </a>
-        </div>
+  </div>
 </header>
 <nz-drawer [nzClosable]="false" [nzVisible]="visible" nzPlacement="left" (nzOnClose)="close()" [nzMask]="true">
   <hr>
@@ -77,11 +77,11 @@
         </button>
       </div>
       <hr class="my-1" />
-      
+
       <div class="flex gap-2">
-      
+
         <div class="flex flex-row items-center gap-1 cursor-pointer">
-      
+
           <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="white">
             <path d="M12 2A10.13 10.13 0 0 0 2 12a10 10 0 0 0 4 7.92V20h.1a9.7 9.7 0 0 0 11.8 0h.1v-.08A10 10 0 0 0 22 12 10.13 10.13 0 0 0 12 2zM8.07 18.93A3 3 0 0 1 11 16.57h2a3 3 0 0 1 2.93 2.36 7.75 7.75 0 0 1-7.86 0zm9.54-1.29A5 5 0 0 0 13 14.57h-2a5 5 0 0 0-4.61 3.07A8 8 0 0 1 4 12a8.1 8.1 0 0 1 8-8 8.1 8.1 0 0 1 8 8 8 8 0 0 1-2.39 5.64z"></path>
             <path d="M12 6a3.91 3.91 0 0 0-4 4 3.91 3.91 0 0 0 4 4 3.91 3.91 0 0 0 4-4 3.91 3.91 0 0 0-4-4zm0 6a1.91 1.91 0 0 1-2-2 1.91 1.91 0 0 1 2-2 1.91 1.91 0 0 1 2 2 1.91 1.91 0 0 1-2 2z"></path>
@@ -92,10 +92,10 @@
         </div>
       </div>
       <hr class="my-3" />
-      
+
       <ul class="space-y-4 font-medium mt-4">
         <li>
-          <a routerLink="/new-create" class="flex items-center p-3 text-gray-900 rounded-lg dark:text-white hover:backdrop-blur-lg bg-white/30  dark:hover:bg-white/10 group">
+          <a routerLink="/table" class="flex items-center p-3 text-gray-900 rounded-lg dark:text-white hover:backdrop-blur-lg bg-white/30  dark:hover:bg-white/10 group">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19.875 3H4.125C2.953 3 2 3.897 2 5v14c0 1.103.953 2 2.125 2h15.75C21.047 21 22 20.103 22 19V5c0-1.103-.953-2-2.125-2zm0 16H4.125c-.057 0-.096-.016-.113-.016-.007 0-.011.002-.012.008L3.988 5.046c.007-.01.052-.046.137-.046h15.75c.079.001.122.028.125.008l.012 13.946c-.007.01-.052.046-.137.046z"></path>
               <path d="M6 7h6v6H6zm7 8H6v2h12v-2h-4zm1-4h4v2h-4zm0-4h4v2h-4z"></path>

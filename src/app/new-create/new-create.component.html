@@ -1,5 +1,4 @@
 <div class="min-h-screen bg-gray-100 flex flex-col items-center p-8">
-    <!-- Header -->
     <header class="w-full p-4 flex items-center justify-end">
         <img
           src="assets/logo-single.png"
@@ -7,13 +6,9 @@
           class="min-w-12 w-12 h-12 rounded-full"
         />
       </header>
-  
-    <!-- Form Container -->
     <div class="w-full max-w-3xl bg-white rounded-lg mt-8 p-6">
       <h2 class="text-xl font-semibold mb-6">New Create</h2>
-      
       <form (ngSubmit)="onSubmit()" class="space-y-6">
-        <!-- Title Field -->
         <div class="flex items-center space-x-4">
           <label for="title" class="block text-sm font-medium w-[80px]">Title</label>
           <input
@@ -25,13 +20,9 @@
             placeholder="Type here"
           />
         </div>
-  
-        <!-- Image Field -->
         <div class="flex items-center space-x-4">
           <label for="image" class="block text-sm font-medium w-[80px]">Image</label>
           <div class="w-3/4 flex items-center space-x-4 border border-gray-300 rounded-lg p-4 bg-gray-50 relative">
-            
-            <!-- Image Preview -->
             <div *ngIf="imageBase64" class="w-16 h-16 bg-gray-200 flex items-center justify-center rounded">
               <img [src]="imageBase64" alt="Selected Image" class="w-full h-full object-cover rounded" />
             </div>
@@ -39,8 +30,6 @@
             <div *ngIf="!imageBase64" class="w-16 h-16 bg-gray-200 flex items-center justify-center rounded">
               <mat-icon class="text-gray-500">image</mat-icon>
             </div>
-
-            <!-- Image Input -->
             <input
               type="file"
               id="image"
@@ -50,8 +39,6 @@
             />
           </div>
         </div>
-  
-        <!-- Date Field -->
         <div class="flex items-center space-x-4">
           <label for="date" class="block text-sm font-medium w-[80px]">Date</label>
           <mat-form-field class="w-3/4" appearance="outline">
@@ -66,8 +53,6 @@
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
-  
-        <!-- Content Field -->
         <div class="flex items-start space-x-4">
           <label for="content" class="block text-sm font-medium mt-1 w-[80px]">Content</label>
           <textarea
@@ -79,8 +64,6 @@
             placeholder="Type here"
           ></textarea>
         </div>
-  
-        <!-- Buttons -->
         <div class="flex justify-end gap-4">
           <button
             type="button"
