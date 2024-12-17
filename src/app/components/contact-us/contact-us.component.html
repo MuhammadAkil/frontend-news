@@ -1,0 +1,50 @@
+<div class="bg-[#F9FAFB] p-[80px] rounded-lg shadow-md grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <!-- Left Section -->
+    <div class="flex flex-col gap-6 items-start">
+      <span class="flex flex-col text-5xl font-bold text-[#161616] max-w-[417px]">Improving Patient Care</span>
+      <p class="text-base text-[#161616] m-0 p-0 max-w-[515px]">
+        The aim of this system is the continuous improvement for our services
+        which will reflect on health care provided to our Patients. All
+        initiatives will go to PSCC directorate.
+      </p>
+    </div>
+  
+    <!-- Right Section -->
+    <div>
+      <form (ngSubmit)="sendMessage()" class="flex flex-col gap-6">
+        <!-- Subject Input -->
+        <div>
+          <label for="subject" class="block text-2xl font-semibold mb-2">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            [(ngModel)]="subject"
+            name="subject"
+            placeholder="Write Subject here"
+            class="w-full px-4 h-[56px] border border-solid border-[#D2D6DB] rounded-lg focus:outline-none focus:ring focus:ring-[#1D8254]"
+          />
+        </div>
+  
+        <!-- Description Textarea -->
+        <div>
+          <textarea
+            id="description"
+            [(ngModel)]="description"
+            name="description"
+            rows="4"
+            placeholder="Write a short description..."
+            class="w-full px-4 pt-4 h-[237px] border border-solid border-[#D2D6DB] rounded-lg focus:outline-none focus:ring focus:ring-[#1D8254]"
+          ></textarea>
+        </div>
+  
+        <!-- Send Button -->
+        <button
+          type="submit"
+          class="bg-[#1D8254] text-white py-4 px-0 rounded-sm text-lg font-medium hover:bg-[#1D8254]"
+        >
+          Send
+        </button>
+      </form>
+    </div>
+  </div>
+  

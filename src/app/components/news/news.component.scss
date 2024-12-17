@@ -1,0 +1,24 @@
+.circle-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Circle shape */
+    padding: 10px; /* Space around the icon */
+    font-size: 24px; /* Adjust icon size */
+    border: 2px solid black;
+}
+.news-title {
+    color: #161616;
+    font-family: Poppins;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 72px; /* 120% */
+    letter-spacing: -1.2px;
+}
+
+.arrow-right-circled {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+}

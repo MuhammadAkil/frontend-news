@@ -1,0 +1,12 @@
+
+.teaser {
+    width: 100%; /* Make the image take the full width of its container */
+    height: 100%; /* Ensure the height scales proportionally */
+    max-width: 546px; /* Optional: Prevent the image from exceeding 546px */
+    max-height: 346px; /* Optional: Prevent the image from exceeding 346px */
+    object-fit: cover; /* Ensures the image scales and crops to fit the container */
+    flex-shrink: 0;
+    border-radius: 15px; /* Smooth rounded corners */
+    border: 1px solid #D2D6DB; /* Consistent border size */
+    display: block; /* Prevent any inline padding/margin issues */
+}

@@ -1,0 +1,33 @@
+:host ::ng-deep {
+
+    .mat-mdc-card-title {
+        color: #161616;
+        font-family: Poppins;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 30px; /* 83.333% */
+    }
+
+    .mat-mdc-card-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .mat-mdc-card-content {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .mat-mdc-card-outlined {
+        border: none !important;
+    }
+}
+
+.arrow-right {
+    width: 16px;
+    height: 9px;
+    font-size: 9px;
+}

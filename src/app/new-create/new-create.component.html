@@ -1,0 +1,106 @@
+<div class="min-h-screen bg-gray-100 flex flex-col items-center p-8">
+    <!-- Header -->
+    <header class="w-full p-4 flex items-center justify-end">
+        <img
+          src="assets/logo-single.png"
+          alt="Logo"
+          class="min-w-12 w-12 h-12 rounded-full"
+        />
+      </header>
+  
+    <!-- Form Container -->
+    <div class="w-full max-w-3xl bg-white rounded-lg mt-8 p-6">
+      <h2 class="text-xl font-semibold mb-6">New Create</h2>
+      
+      <form (ngSubmit)="onSubmit()" class="space-y-6">
+        <!-- Title Field -->
+        <div class="flex items-center space-x-4">
+          <label for="title" class="block text-sm font-medium w-[80px]">Title</label>
+          <input
+            id="title"
+            type="text"
+            class="w-3/4 border border-gray-300 rounded-md px-4 py-2 outline-none focus:ring focus:ring-green-200"
+            [(ngModel)]="formData.title"
+            name="title"
+            placeholder="Type here"
+          />
+        </div>
+  
+        <!-- Image Field -->
+        <div class="flex items-center space-x-4">
+          <label for="image" class="block text-sm font-medium w-[80px]">Image</label>
+          <div class="w-3/4 flex items-center space-x-4 border border-gray-300 rounded-lg p-4 bg-gray-50 relative">
+            
+            <!-- Image Preview -->
+            <div *ngIf="imageBase64" class="w-16 h-16 bg-gray-200 flex items-center justify-center rounded">
+              <img [src]="imageBase64" alt="Selected Image" class="w-full h-full object-cover rounded" />
+            </div>
+            
+            <div *ngIf="!imageBase64" class="w-16 h-16 bg-gray-200 flex items-center justify-center rounded">
+              <mat-icon class="text-gray-500">image</mat-icon>
+            </div>
+
+            <!-- Image Input -->
+            <input
+              type="file"
+              id="image"
+              (change)="onFileSelected($event)"
+              accept="image/*"
+              class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            />
+          </div>
+        </div>
+  
+        <!-- Date Field -->
+        <div class="flex items-center space-x-4">
+          <label for="date" class="block text-sm font-medium w-[80px]">Date</label>
+          <mat-form-field class="w-3/4" appearance="outline">
+            <input
+              id="date"
+              matInput
+              [matDatepicker]="picker"
+              [(ngModel)]="formData.date"
+              name="date"
+            />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+  
+        <!-- Content Field -->
+        <div class="flex items-start space-x-4">
+          <label for="content" class="block text-sm font-medium mt-1 w-[80px]">Content</label>
+          <textarea
+            id="content"
+            rows="4"
+            class="w-3/4 border border-gray-300 rounded-md px-4 py-2 outline-none focus:ring focus:ring-green-200"
+            [(ngModel)]="formData.content"
+            name="content"
+            placeholder="Type here"
+          ></textarea>
+        </div>
+  
+        <!-- Buttons -->
+        <div class="flex justify-end gap-4">
+          <button
+            type="button"
+            mat-stroked-button
+            style="background-color: #CBE6BA;"
+            class="px-6 py-2 border border-green-600 text-green-600 rounded-md hover:bg-green-100"
+            (click)="onCancel()"
+          >
+            Cancel
+          </button>
+          <button
+            mat-raised-button
+            style="background-color: #CBE6BA;"
+            class="px-6 py-2 text-white rounded-md"
+            type="submit"
+          >
+            Create
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
