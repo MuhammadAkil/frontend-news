@@ -11,8 +11,8 @@ const routes: Routes = [
     component: LayoutComponent, 
     children: [
       { path: '', component: HomeComponent },  
-      { path: 'table', component: TableComponent },
-      { path: 'new-create', component: NewCreateComponent },  
+      { path: 'news-logs', component: TableComponent },
+      { path: 'create-news', component: NewCreateComponent },  
       { path: 'news', loadChildren: () => import('./news/news.module').then(m => m.NewsModule) },
     ]
   },

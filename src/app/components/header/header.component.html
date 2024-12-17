@@ -57,15 +57,15 @@
       <span>Combo Box </span>
       <mat-icon svgIcon="arrow-down" class="arrow-down text-white"></mat-icon>
     </a>
-    <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer" routerLink="/new-create">
+    <!-- <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer" routerLink="/new-create">
       <span>New Create </span>
     </a>
     <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer" routerLink="/table">
       <span>Table </span>
-    </a>
+    </a> -->
   </div>
 </header>
-<nz-drawer [nzClosable]="false" [nzVisible]="visible" nzPlacement="left" (nzOnClose)="close()" [nzMask]="true">
+<nz-drawer [nzClosable]="false" [nzVisible]="visible" nzPlacement="left" (nzOnClose)="close()" [nzMask]="true" [nzMaskClosable]="true">
   <hr>
   <aside *nzDrawerContent class="fixed top-0 right-0 z-40 w-80 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-[#064D31]">
@@ -95,7 +95,7 @@
 
       <ul class="space-y-4 font-medium mt-4">
         <li>
-          <a routerLink="/table" class="flex items-center p-3 text-gray-900 rounded-lg dark:text-white hover:backdrop-blur-lg dark:hover:bg-white/30  hover:transition hover:duration-700 ease-in-out bg-white/10 group">
+          <a routerLink="/news-logs" class="flex items-center p-3 text-gray-900 rounded-lg dark:text-white hover:backdrop-blur-lg dark:hover:bg-white/30  hover:transition hover:duration-700 ease-in-out bg-white/10 group">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M19.875 3H4.125C2.953 3 2 3.897 2 5v14c0 1.103.953 2 2.125 2h15.75C21.047 21 22 20.103 22 19V5c0-1.103-.953-2-2.125-2zm0 16H4.125c-.057 0-.096-.016-.113-.016-.007 0-.011.002-.012.008L3.988 5.046c.007-.01.052-.046.137-.046h15.75c.079.001.122.028.125.008l.012 13.946c-.007.01-.052.046-.137.046z"></path>
               <path d="M6 7h6v6H6zm7 8H6v2h12v-2h-4zm1-4h4v2h-4zm0-4h4v2h-4z"></path>
