@@ -3,6 +3,7 @@
 
     .mat-mdc-button:not(:disabled) {
         color: white;
+        background-color: #064D31;
     }
 }
 .user {
@@ -35,3 +36,25 @@
     }
   }
   
+mat-sidenav-container {
+  position: relative;
+}
+
+mat-sidenav {
+  position: fixed !important; 
+  z-index: 9999;
+  height: 50vh; 
+  top: 88px; 
+  right: 0; 
+  transition: transform 0.3s ease; 
+  transform: translateX(100%); 
+}
+
+mat-sidenav.open {
+  transform: translateX(0); 
+}
+
+mat-sidenav button {
+  font-size: 1rem;
+  padding: 12px;
+}

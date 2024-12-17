@@ -1,49 +1,59 @@
 <header class="bg-white shadow-md">
-    <!-- Top Bar -->
-    <div class="flex justify-between items-center h-[88px]  px-[48px]">
-      <!-- Left Info -->
-      <div class="flex items-center space-x-2">
-        <span class="text-sm">Employee Name</span>
-        <span class="text-sm text-gray-400">|</span>
-        <span class="text-sm">ID: 84743</span>
-        <span class="text-sm text-gray-400">|</span>
-        <span class="text-sm">Specialist</span>
-        <span class="text-sm text-gray-400">|</span>
-        <span class="text-sm">Report to: Mr. Adel</span>
-      </div>
-  
-      <!-- Logos -->
-      <div class="flex items-center space-x-4">
-        <img src="assets/logo.png" alt="Logo 1" class="h-[76px]" />
-      </div>
-  
-      <!-- Right Info (Navigation + User Icon) -->
-      <div class="flex items-center space-x-4">
-        <button mat-button class="text-sm text-black">Home</button>
-        <button mat-button class="text-sm text-black">Contacts</button>
-        <div class="flex flex-row items-center gap-1">
-            <mat-icon svgIcon="user" class="user"></mat-icon>
-            <mat-icon svgIcon="arrow-down" class="arrow-down"></mat-icon>
-        </div>
+  <!-- Top Bar -->
+  <div class="flex justify-between items-center h-[88px] px-[48px]">
+    <!-- Left Info -->
+    <div class="flex items-center space-x-2">
+      <span class="text-sm">Employee Name</span>
+      <span class="text-sm text-gray-400">|</span>
+      <span class="text-sm">ID: 84743</span>
+      <span class="text-sm text-gray-400">|</span>
+      <span class="text-sm">Specialist</span>
+      <span class="text-sm text-gray-400">|</span>
+      <span class="text-sm">Report to: Mr. Adel</span>
+    </div>
+
+    <!-- Logos -->
+    <div class="flex items-center space-x-4">
+      <img src="assets/logo.png" alt="Logo 1" class="h-[76px]" />
+    </div>
+
+    <!-- Right Info (Navigation + User Icon) -->
+    <div class="flex items-center space-x-4">
+      <button mat-button class="text-sm text-black bg-black">Home</button>
+      <button mat-button class="text-sm text-black">Contacts</button>
+      <div class="flex flex-row items-center gap-1 cursor-pointer" (click)="toggleSidenav()">
+        <mat-icon svgIcon="user" class="user"></mat-icon>
+        <mat-icon svgIcon="arrow-down" class="arrow-down"></mat-icon>
       </div>
     </div>
-  
-    <!-- Navigation Bar -->
-    <div class="flex flex-row bg-[#064D31] gap-4 h-[64px] px-[48px] items-center">
-        <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer">
-            <span>Combo Box </span>
-            <mat-icon svgIcon="arrow-down" class="arrow-down text-white"></mat-icon>
-        </a>
-        <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer">
-            <span>Combo Box </span>
-            <mat-icon svgIcon="arrow-down" class="arrow-down text-white"></mat-icon>
-        </a>
-        <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer" routerLink="/new-create">
-            <span>New Create </span>
-        </a>
-        <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer" routerLink="/table">
-            <span>Table </span>
-        </a>
-    </div>
+  </div>
+
+  <!-- Sidenav Container -->
+  <mat-sidenav-container class="fixed inset-0 z-50">
+    <mat-sidenav #sidenav mode="over" position="end" class="w-64">
+      <div class="p-4">
+        <button mat-button class="w-full text-left mb-4" routerLink="/news">NEWS</button>
+        <button mat-button class="w-full text-left mb-4">EVENTS</button>
+        <button mat-button class="w-full text-left">OFFERS</button>
+      </div>
+    </mat-sidenav>
+  </mat-sidenav-container>
+
+  <!-- Navigation Bar -->
+  <div class="flex flex-row bg-[#064D31] gap-4 h-[64px] px-[48px] items-center">
+    <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer">
+      <span>Combo Box </span>
+      <mat-icon svgIcon="arrow-down" class="arrow-down text-white"></mat-icon>
+    </a>
+    <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer">
+      <span>Combo Box </span>
+      <mat-icon svgIcon="arrow-down" class="arrow-down text-white"></mat-icon>
+    </a>
+    <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer" routerLink="/new-create">
+      <span>New Create </span>
+    </a>
+    <a class="flex flex-row items-center gap-1 hover:bg-teal-700 text-white rounded-lg px-4 py-3 cursor-pointer" routerLink="/table">
+      <span>Table </span>
+    </a>
+  </div>
 </header>
-  

@@ -1,0 +1,59 @@
+<div class="min-h-screen bg-gray-200 flex flex-col items-center p-8">
+    <header class="w-full p-4 flex items-center justify-end">
+        <img src="assets/logo-single.png" alt="Logo" class="w-12 h-12 rounded-full" />
+    </header>
+
+    <div class="w-full max-w-md mb-6 bg-white p-6 rounded-md shadow-lg border border-gray-300">
+        <h2 class="text-lg font-semibold mb-4 text-gray-700">Add New News</h2>
+        <mat-form-field appearance="outline" class="w-full mb-4">
+            <mat-label>Title</mat-label>
+            <input matInput [(ngModel)]="news.title" placeholder="Enter news title" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full mb-4">
+            <mat-label>Image</mat-label>
+            <input matInput [(ngModel)]="news.image" placeholder="Enter image URL" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="w-full mb-4">
+            <mat-label>Content</mat-label>
+            <textarea matInput rows="4" [(ngModel)]="news.content" placeholder="Write your news content here"></textarea>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="w-full bg-blue-500 text-white hover:bg-blue-700 transition" (click)="createNews()">
+            Add News
+        </button>
+    </div>
+
+    <div class="w-full max-w-4xl bg-white rounded-lg shadow-lg mt-6">
+        <table mat-table [dataSource]="rows" style="width: 100%;" class="border-collapse">
+            
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef class="px-4 py-2 bg-blue-100"> ID </th>
+                <td mat-cell *matCellDef="let row" class="px-4 py-2">{{ row.id }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef class="px-4 py-2 bg-blue-100"> Title </th>
+                <td mat-cell *matCellDef="let row" class="px-4 py-2">{{ row.title }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="image">
+                <th mat-header-cell *matHeaderCellDef class="px-4 py-2 bg-blue-100"> Image </th>
+                <td mat-cell *matCellDef="let row" class="px-4 py-2">{{ row.image }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="px-4 py-2 bg-blue-100"> Actions </th>
+                <td mat-cell *matCellDef="let row" class="px-4 py-2">
+                    <button mat-icon-button color="primary" (click)="updateNews(row)" aria-label="Edit">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
