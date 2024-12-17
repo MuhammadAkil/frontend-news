@@ -12,14 +12,4 @@ export class HeaderComponent {
   toggleSidenav() {
     this.sidenav.toggle();
   }
-  visible = false;
-
-  open(): void {
-    this.visible = true;
-  }
-
-  close(): void {
-    this.visible = false;
-  }
-
 }

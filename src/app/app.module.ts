@@ -29,8 +29,13 @@ import { NewCreateComponent } from './new-create/new-create.component'; // Mater
 import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import { LayoutComponent } from './layout/layout.component';
 import { RouterModule } from '@angular/router';
-
-
+import { CommonModule } from '@angular/common';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +60,6 @@ import { RouterModule } from '@angular/router';
     NzSelectModule,
     NzDatePickerModule,
     BrowserModule,
-    NzDrawerModule,
     RouterModule.forRoot([]),
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -71,8 +75,7 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule,
-
+    HttpClientModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
