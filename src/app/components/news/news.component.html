@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="flex-1 max-w-96 rounded-lg overflow-hidden">
     <app-teaser></app-teaser>
     <div class="flex flex-col mt-[32px]">
@@ -9,6 +9,53 @@
         <div class="flex items-center justify-start gap-3">
             <span class="text-xl font-semibold">Oct 28, 2024 | 2:44 PM</span>
             <mat-icon svgIcon="arrow-right-circled" class="arrow-right-circled"></mat-icon>
+        </div>
+    </div>
+</div> -->
+
+<div class="flex-1 w-full w-1/2 rounded-lg overflow-hidden max-w-[1100px] mx-auto">
+    <!-- Teaser Component -->
+    <!-- <app-teaser></app-teaser> -->
+
+    <!-- News Section -->
+    <div class="flex flex-col mt-[32px]">
+        <!-- <h2 class="news-title">News</h2>
+        <p class="text-[#161616] mb-4 text-lg">
+            Here you can add a brief description about the purpose of the portal followed with a call to action button and an image or an illustration on the left hand side.
+        </p> -->
+
+        <div class="flex flex-col relative">
+            <!-- Carousel Wrapper -->
+            <div #sliderWrapper class="flex border border-solid border-[#D2D6DB] bg-white rounded-[16px] flex-row overflow-x-auto no-scrollbar">
+                <div *ngFor="let card of newsCards" class="flex-none w-full min-h-[478px] p-[16px] gap-[24px]  shadow-xl ">
+                    <!-- <app-teaser></app-teaser> -->
+
+                    <img [src]="card.imageSrc" alt="News Image" class="rounded-lg w-full h-[250px] object-fit" />
+                    <span class="flex flex-col text-lg font-bold mt-4">{{ card.title }}</span>
+                    <p class="text-[#1F2A37] text-base m-0 p-0">{{ card.description }}</p>
+                    <button class="mt-4 px-4 py-2 bg-[#1D8254] text-white text-sm font-medium rounded-sm flex items-center gap-2">
+                        Read More
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Carousel Navigation Arrows -->
+            <div class=" flex justify-between items-center mt-4">
+                <button class="absolute left-0 top-[40%] w-[40px] h-[40px] text-white bg-[#1D8254] rounded-full shadow-lg flex items-center justify-center" [ngClass]="{ 'bg-gray-400 text-black': disablePrev }" (click)="prevSlide()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+
+                <button class="absolute top-[40%] right-0 w-[40px] h-[40px] text-white bg-[#1D8254] rounded-full shadow-lg flex items-center justify-center" [ngClass]="{ 'bg-gray-400 text-black': disableNext }" (click)="nextSlide()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
 </div>
