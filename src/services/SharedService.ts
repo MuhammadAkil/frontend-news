@@ -23,7 +23,6 @@ export class SharedService {
         };
         return this.http.post<any>(`${this.APIUrl}news`, payload);
     }
-
     updateNews(id: number, news: any): Observable<any> {
         const payload = {
             title: news.title,

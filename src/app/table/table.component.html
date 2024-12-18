@@ -1,22 +1,15 @@
 <div class="min-h-screen bg-gray-100 flex flex-col items-center justify-start p-8">
-  <!-- <header class="w-full p-4 flex items-center justify-end">
-    <img src="assets/logo-single.png" alt="Logo" class="w-12 h-12 rounded-full" />
-   
-  </header> -->
 <div class="my-6 w-full md:gap-20 flex justify-between items-center max-w-4xl">
   <button mat-raised-button color="primary" (click)="openModal()">
     Create
   </button>
-  <!-- <button class="p-3 border flex whitespace-nowrap bg-[#CBE6BA] rounded-md hover:bg-[#CBE6BA]/80" type="button" routerLink="/create-news">+ Create News</button>  -->
      <mat-form-field class="w-full mr-4" appearance="outline">
-      <!-- <mat-label>Search</mat-label> -->
       <input matInput placeholder="Search" [(ngModel)]="searchTerm" (ngModelChange)="applyFilter()" />
       <mat-icon matSuffix (ngModelChange)="applyFilter()">search</mat-icon>
     </mat-form-field>
   </div>
   <div class="w-full max-w-4xl bg-white rounded-lg shadow-md p-4">
     <table mat-table [dataSource]="newsList" class="w-full">
-      <!-- Table Columns -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef class="bg-green-200">ID</th>
         <td mat-cell *matCellDef="let row">{{ row.id }}</td>
@@ -80,6 +73,5 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
   </div>
-  <!-- Modal -->
   <app-create-modal [isVisible]="isModalVisible" (closeModal)="isModalVisible = false" (formSubmit)="handleFormSubmit($event)"></app-create-modal>
 </div>
