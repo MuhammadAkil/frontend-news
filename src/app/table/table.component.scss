@@ -7,7 +7,10 @@ th.mat-mdc-header-cell {
 td.mat-mdc-cell {
     /* row border */
     border: 2px solid #BABABA;
-    padding: 12px;
+    padding: 6px;
+}
+.mat-mdc-form-field-infix {
+    min-height: 30px !important;
 }
 table {
     /* row spacing / margin */

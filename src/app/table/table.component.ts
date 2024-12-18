@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { NewsModel } from 'src/models/news.model';
 import { SharedService } from 'src/services/SharedService';
 @Component({
@@ -15,10 +16,23 @@ export class TableComponent implements OnInit {
   isModalVisible: boolean = false;
   modalNews: NewsModel = new NewsModel(0, '', '', '', new Date());
 
-  constructor(private sharedService: SharedService) { }
+  constructor(private sharedService: SharedService, private router: Router) { }
+
 
   ngOnInit(): void {
     this.fetchNewsList();
+
+    // remove this line when you integrate the backend
+    this.newsList = [
+      new NewsModel(1, 'Breaking News 1', 'Content for news 1', 'assets/image.png', new Date()),
+      new NewsModel(2, 'Breaking News 2', 'Content for news 2', 'assets/image.png', new Date()),
+      new NewsModel(3, 'Breaking News 3', 'Content for news 3', 'assets/image.png', new Date()),
+      new NewsModel(4, 'Breaking News 4', 'Content for news 4', 'assets/image.png', new Date()),
+    ];
+
+    // remove this line when you integrate the backend
+    this.filteredNewsList = [...this.newsList];
+
   }
   fetchNewsList(): void {
     this.sharedService.getNewsList().subscribe((data) => {
@@ -68,5 +82,8 @@ export class TableComponent implements OnInit {
         console.log('News created successfully');
       });
     }
+  }
+  navigateToDetails(newsId: number) {
+    this.router.navigate([`/news-details/${newsId}`]);
   }
 }

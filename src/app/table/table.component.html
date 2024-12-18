@@ -1,15 +1,15 @@
 <div class="min-h-screen bg-gray-100 flex flex-col items-center justify-start p-8">
-<div class="my-6 w-full md:gap-20 flex justify-between items-center max-w-4xl">
-  <button mat-raised-button style="background-color: #064D31; color: white;" (click)="openModal()">
-    Create
+<div class="my-6 w-full md:gap-20 flex justify-between items-center max-w-6xl">
+  <button mat-raised-button class="!p-5" style="background-color: #064D31; color: white;" (click)="openModal()">
+    + Create
   </button>
-     <mat-form-field class="w-full mr-4" appearance="outline">
+    <mat-form-field class="w-[50%] " appearance="outline">
       <input matInput placeholder="Search" [(ngModel)]="searchTerm" (ngModelChange)="applyFilter()" />
       <mat-icon matSuffix (ngModelChange)="applyFilter()">search</mat-icon>
     </mat-form-field>
   </div>
-  <div class="w-full max-w-4xl bg-white rounded-lg shadow-md p-4">
-    <table mat-table [dataSource]="newsList" class="w-full">
+  <div class="w-full max-w-6xl overflow-x-auto bg-white rounded-lg shadow-md p-4">
+    <!-- <table mat-table [dataSource]="newsList" class="w-full">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef class="bg-green-200">ID</th>
         <td mat-cell *matCellDef="let row">{{ row.id }}</td>
@@ -41,6 +41,13 @@
           </mat-form-field>
         </td>
       </ng-container>
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef class="bg-green-200">Image</th>
+        <td mat-cell *matCellDef="let row">
+          <img [src]="row.image" alt="Image" class="w-20 h-20 object-cover rounded-md" />
+        </td>
+      </ng-container>
+
       <ng-container matColumnDef="date">
         <th mat-header-cell *matHeaderCellDef class="bg-green-200">Date</th>
         <td mat-cell *matCellDef="let row">
@@ -55,23 +62,73 @@
         <th mat-header-cell *matHeaderCellDef class="bg-green-200">Actions</th>
         <td mat-cell *matCellDef="let row">
           <div *ngIf="editingRow?.id === row.id; else defaultActions">
-            <button mat-raised-button color="primary" class="mr-2" (click)="saveRow(row)">
-              Save
-            </button>
+          
             <button mat-raised-button color="warn" (click)="cancelEdit()">
               Cancel
             </button>
           </div>
           <ng-template #defaultActions>
-            <button mat-raised-button color="accent" class="mr-2" (click)="editRow(row)">
-              Edit
+            <button mat-raised-button color="accent" class="" (click)="editRow(row)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black">
+                <path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"></path>
+                <path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"></path>
+              </svg>
             </button>
-          </ng-template>
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
+            
+            </ng-template>
+            </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table> -->
+            <table mat-table [dataSource]="newsList" class="w-full">
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef class="bg-green-200">ID</th>
+                <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+              </ng-container>
+            
+              <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef class="bg-green-200">Title</th>
+                <td mat-cell *matCellDef="let row">{{ row.title }}</td>
+              </ng-container>
+            
+              <ng-container matColumnDef="content">
+                <th mat-header-cell *matHeaderCellDef class="bg-green-200">Content</th>
+                <td mat-cell *matCellDef="let row">{{ row.content }}</td>
+              </ng-container>
+            
+              <ng-container matColumnDef="image">
+                <th mat-header-cell *matHeaderCellDef class="bg-green-200">Image</th>
+                <td mat-cell *matCellDef="let row">
+                  <img [src]="row.image" alt="Image" class="w-20 h-16 object-cover rounded-md" />
+                </td>
+              </ng-container>
+            
+              <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef class="bg-green-200">Date</th>
+                <td mat-cell *matCellDef="let row">{{ row.date | date }}</td>
+              </ng-container>
+            
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="bg-green-200">Actions</th>
+                <td mat-cell *matCellDef="let row">
+                  <div class="flex items-center justify-center gap-2">
+            
+                    <button mat-raised-button color="green" (click)="navigateToDetails(row.id)">
+                      View
+                    </button>
+                    <button mat-raised-button color="green" (click)="editRow(row)">
+                      Edit
+                    </button>
+                </div>
+                
+                </td>
+                </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
   </div>
   <app-create-modal [isVisible]="isModalVisible" (closeModal)="isModalVisible = false" (formSubmit)="handleFormSubmit($event)"></app-create-modal>
 </div>
