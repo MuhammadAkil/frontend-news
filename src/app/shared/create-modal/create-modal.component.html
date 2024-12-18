@@ -28,6 +28,9 @@
                         <div *ngFor="let img of imagePreviews" class="w-16 h-16 bg-gray-200 flex items-center justify-center rounded">
                             <img [src]="img" alt="Selected Image" class="w-full h-full object-cover rounded" />
                         </div>
+                        <div *ngIf="!imageBase64" class="w-16 h-16 bg-gray-200 flex items-center justify-center rounded">
+                            <mat-icon class="text-gray-500">image</mat-icon>
+                        </div>
                     </div>
                     <input type="file" id="images" (change)="onMultipleFilesSelected($event)" accept="image/*" multiple class="w-full opacity-0 absolute inset-0 cursor-pointer" />
                 </div>
