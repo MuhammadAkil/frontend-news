@@ -1,27 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-news-details',
   templateUrl: './news-details.component.html',
   styleUrls: ['./news-details.component.scss']
 })
-export class NewsDetailsComponent implements OnInit {
+export class NewsDetailsComponent {
+  // Blog data
   blogData = {
-    title: 'Sample Blog Title',
+    title: 'Armed Forces Hospital in the South organizes a workshop to improve nursing quality',
     subtitle: 'A brief subtitle about the blog post.',
     imageUrl: 'assets/image.png',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    content: 'The Southern Armed Forces Hospital Administration, represented by the Nursing Department, organized a workshop entitled (Improving Nursing Quality Using NDNQI Indicators), under the patronage and attendance of His Excellency Major General Doctor Mohammed bin Saeed Al-Qahtani, Director of the Hospital, and with the participation of 60 representatives from the hospitals of the General Administration of Health Services at the Ministry of Defense.'
   };
 
   currentDate: Date = new Date();
-  newsId: string | null = null;
 
-  constructor(private route: ActivatedRoute) { }
+  currentYear: number = this.currentDate.getFullYear();
 
-  ngOnInit(): void {
-    // Get the 'id' parameter from the URL
-    this.newsId = this.route.snapshot.paramMap.get('id');
-    // You can use this 'newsId' to fetch the actual blog data from a service
+  currentMonth: number = this.currentDate.getMonth() + 1;
+
+  currentDay: number = this.currentDate.getDate();
+
+  weekDays: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  currentWeekName: string = this.weekDays[this.currentDate.getDay()];
+
+  fullFormattedDate: string = `${this.currentYear}-${this.formatDate(this.currentMonth)}-${this.formatDate(this.currentDay)}`;
+
+  private formatDate(value: number): string {
+    return value < 10 ? `0${value}` : `${value}`;
   }
 }

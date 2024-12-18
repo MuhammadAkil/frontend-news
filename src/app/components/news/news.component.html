@@ -33,7 +33,7 @@
                     <img [src]="card.imageSrc" alt="News Image" class="rounded-lg w-full h-[250px] object-fit" />
                     <span class="flex flex-col text-lg font-bold mt-4">{{ card.title }}</span>
                     <p class="text-[#1F2A37] text-base m-0 p-0">{{ card.description }}</p>
-                    <button class="mt-4 px-4 py-2 bg-[#1D8254] text-white text-sm font-medium rounded-sm flex items-center gap-2" (click)="navigateToDetails(card.id)">
+                    <button class="mt-4 px-4  !rounded-lg py-2 bg-[#1D8254] text-white text-sm font-medium flex items-center gap-2 border bg-gradient-to-r from-green to-blue-500 px-6 py-2 text-sm font-medium  shadow-md transition-all duration-200 hover:from-green-800 hover:to-green-400 hover:shadow-lg" (click)="navigateToDetails(card.id)">
                         Read More
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
