@@ -3,8 +3,6 @@
 <button mat-icon-button aria-label="Close modal" style="position: absolute; top: 0.5rem; right: 0.5rem;" (click)="close()">
     <mat-icon>close</mat-icon>
 </button>
-
-
         <h2 class="text-xl font-semibold mb-6">{{ news.id ? 'Edit News' : 'Create News' }}</h2>
         <form (ngSubmit)="onSubmit()" class="space-y-6 overflow-y-auto" style="max-height: calc(100% - 80px);">
             <div class="flex items-center space-x-4">
