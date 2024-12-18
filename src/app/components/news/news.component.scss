@@ -22,3 +22,38 @@
     width: 30px;
     height: 30px;
 }
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.news-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.carousel-button {
+  width: 60px;
+  height: 60px;
+  background-color: #1d8254;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-button:disabled {
+  background-color: #e0e0e0;
+  cursor: not-allowed;
+}
+
+.carousel-arrow {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+}
