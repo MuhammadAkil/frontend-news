@@ -12,7 +12,8 @@ export class TableComponent implements OnInit {
   filteredNewsList: NewsModel[] = [];
   displayedColumns: string[] = ['id', 'title', 'content', 'image', 'date', 'actions'];
   editingRow: NewsModel | null = null;
-  searchTerm: string = ''; 
+  searchTerm: string = '';
+  isModalVisible: boolean = false; // To manage modal visibility
 
   constructor(private sharedService: SharedService) { }
 
@@ -35,7 +36,6 @@ export class TableComponent implements OnInit {
     );
   }
 
-
   editRow(row: NewsModel): void {
     this.editingRow = { ...row };
   }
@@ -50,5 +50,21 @@ export class TableComponent implements OnInit {
 
   cancelEdit(): void {
     this.editingRow = null;
+  }
+
+  openModal(): void {
+    this.isModalVisible = true;
+  }
+
+  closeModal(): void {
+    this.isModalVisible = false;
+  }
+
+  handleFormSubmit(newNews: NewsModel): void {
+    this.sharedService.createNews(newNews).subscribe(() => {
+      this.fetchNewsList();
+      this.closeModal();
+      console.log('News created successfully');
+    });
   }
 }
