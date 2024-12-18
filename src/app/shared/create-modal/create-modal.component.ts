@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SharedService } from 'src/services/SharedService';
+import { NewModel } from 'src/models/news.model';
 @Component({
   selector: 'app-create-modal',
   templateUrl: './create-modal.component.html',
@@ -7,22 +8,13 @@ import { SharedService } from 'src/services/SharedService';
 })
 export class CreateModalComponent {
   @Input() isVisible = false;
+  @Input() news: NewModel = new NewModel(0, '', '', '', new Date(), 0, []);  
   @Output() closeModal = new EventEmitter<void>();
-  @Output() formSubmit = new EventEmitter<any>();
-  formData = {
-    title: '',
-    image: '',
-    date: new Date(),
-    content: '',
-    create_By: 0,
-    news_Images: [] as string[],
-  };
-
+  @Output() formSubmit = new EventEmitter<NewModel>();
+  formData: NewModel = new NewModel(0, '', '', '', new Date(), 0, []);
   imageBase64: string | null = null;
   imagePreviews: string[] = [];
-
   constructor(private sharedService: SharedService) { }
-
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input?.files?.[0]) {
@@ -41,7 +33,7 @@ export class CreateModalComponent {
       const result = reader.result as string;
       if (isSingle) {
         this.imageBase64 = result;
-        this.formData.image = result;  
+        this.formData.image = result;
       } else {
         this.imagePreviews.push(result);
         this.formData.news_Images.push(result);
@@ -49,39 +41,48 @@ export class CreateModalComponent {
     };
     reader.readAsDataURL(file);
   }
-
   onSubmit(): void {
     if (this.imageBase64) {
       this.formData.image = this.imageBase64;
     }
     this.formData.create_By = 1;
-    this.sharedService.createNews(this.formData).subscribe(
-      () => {
-        alert('Created successfully!');
-        this.formSubmit.emit(this.formData);
-        this.close();
-      },
-      (error) => {
-        alert('Failed to create news. Please try again.');
-      }
-    );
+    if (this.news.id) {
+      this.sharedService.updateNews(this.news.id, this.formData).subscribe(
+        () => {
+          alert('Updated successfully!');
+          this.formSubmit.emit(this.formData);
+          this.close();
+        },
+        (error) => {
+          alert('Failed to update news. Please try again.');
+        }
+      );
+    } else {
+      this.sharedService.createNews(this.formData).subscribe(
+        () => {
+          alert('Created successfully!');
+          this.formSubmit.emit(this.formData);
+          this.close();
+        },
+        (error) => {
+          alert('Failed to create news. Please try again.');
+        }
+      );
+    }
   }
-
   close(): void {
     this.resetForm();
     this.isVisible = false;
     this.closeModal.emit();
   }
   resetForm(): void {
-    this.formData = {
-      title: '',
-      image: '',
-      date: new Date(),
-      content: '',
-      create_By: 0,
-      news_Images: [],
-    };
+    this.formData = new NewModel(0, '', '', '', new Date(), 0, []);
     this.imageBase64 = null;
     this.imagePreviews = [];
+  }
+  ngOnChanges(): void {
+    if (this.news.id) {
+      this.formData = { ...this.news };
+    }
   }
 }
