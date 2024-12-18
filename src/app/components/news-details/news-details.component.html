@@ -1,0 +1,35 @@
+<article class="body-font h-auto max-w-[1223px] overflow-visible !rounded-xl border border-solid border-white/15 text-gray-600 shadow-[rgba(0,0,0,0.25)_0px_30px_60px_0px,_rgba(0,0,0,0.25)_0px_15px_30px_0px,_rgba(0,0,0,0.25)_0px_5px_10px_0px,_rgba(204,215,255,0.15)_0px_0px_100px_0px_inset] backdrop-blur-[25px]">
+    <div class="container mx-auto max-w-[800px] px-5 py-14">
+        <h2 class="mb-16 text-start font-display text-3xl tracking-tight  sm:text-4xl">
+            Blog.
+        </h2>
+        <h2 class="text-start font-display text-3xl tracking-tight  sm:text-4xl">
+            {{ blogData.title }}
+        </h2>
+        <p class="text-start text-lg ">{{ blogData.subtitle }}</p>
+
+        <div class="mt-6">
+            <img [src]="blogData.imageUrl" alt="Cover Image" class="h-auto w-full rounded-lg object-cover shadow-md" />
+        </div>
+
+        <div class="py-14">
+            <p class="mt-4 text-start ">
+                {{ currentDate }}
+            </p>
+            <div class="mt-8 text-base ">
+                <p>{{ blogData.content }}</p>
+            </div>
+            <div class="mt-8 text-base ">
+                <p>{{ blogData.content }}</p>
+            </div>
+
+        </div>
+
+        <a href="/" class="m-5 inline-flex items-center rounded-full border bg-gradient-to-r from-black to-blue-500 px-6 py-2 text-sm font-medium  shadow-md transition-all duration-200 hover:from-gray-800 hover:to-blue-600 hover:shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="-rotate-90 fill-current ">
+                <path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"></path>
+            </svg>
+            Back to Blog
+        </a>
+    </div>
+</article>

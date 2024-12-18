@@ -38,6 +38,7 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { CreateModalComponent } from './shared/create-modal/create-modal.component';
+import { NewsDetailsComponent } from './components/news-details/news-details.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { CreateModalComponent } from './shared/create-modal/create-modal.compone
     TableComponent,
     NewCreateComponent,
     LayoutComponent,
-    CreateModalComponent
+    CreateModalComponent,
+    NewsDetailsComponent
   ],
   imports: [
     CommonModule,

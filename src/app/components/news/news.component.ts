@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -9,29 +10,37 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   }
 })
 export class NewsComponent {
+  currentIndex = 0;
+  disablePrev = true;
+  disableNext = false;
+
   newsCards = [
     {
+      id: 1, // Add an ID for each news item
       imageSrc: 'assets/image.png',
       title: 'The Title of the News Card in two Lines',
       description: 'Here you can include a brief description of the headline in four lines.',
     },
     {
+      id: 2,
       imageSrc: 'assets/image.png',
       title: 'Another News Card Title',
       description: 'Here you can include a brief description of the headline in four lines.',
     },
     {
+      id: 3,
       imageSrc: 'assets/image.png',
       title: 'Another News Card Title',
       description: 'Here you can include a brief description of the headline in four lines.',
     },
   ];
 
-  currentIndex = 0;
-  disablePrev = true;
-  disableNext = false;
+
+
 
   @ViewChild('sliderWrapper') sliderWrapper!: ElementRef;
+
+  constructor(private router: Router) { }
 
   ngAfterViewInit() {
     this.updateButtonStates();
@@ -63,4 +72,9 @@ export class NewsComponent {
     this.disableNext = sliderWrapper.scrollLeft + sliderWrapper.offsetWidth >= sliderWrapper.scrollWidth;
   }
 
+  // Navigate to the news detail page with the ID of the clicked card
+  navigateToDetails(newsId: number) {
+    this.router.navigate([`/news-details/${newsId}`]);
+  }
 }
+
