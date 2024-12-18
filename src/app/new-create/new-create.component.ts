@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { SharedService } from 'src/services/SharedService';
-
 @Component({
   selector: 'app-new-create',
   templateUrl: './new-create.component.html',
@@ -14,31 +13,21 @@ export class NewCreateComponent {
     content: '',
     create_By: 0,
   };
-
-  imageBase64: string | null = null;  // To store Base64 string of the image
-
+  imageBase64: string | null = null;  
   constructor(private sharedService: SharedService) { }
-
-  // Handle image file selection and convert to Base64
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-
     if (input && input.files && input.files[0]) {
       const file = input.files[0];
       this.convertToBase64(file);
     }
   }
-
   onSubmit() {
-
     if (this.imageBase64 != null && this.imageBase64 != "") {
       this.formData.image = this.imageBase64;
     }
-
     this.formData.create_By = 1;
-    
     console.log('Form submitted:', this.formData); 
-
     this.sharedService.createNews(this.formData).subscribe(
       (response) => {
         alert("created successfully!")
@@ -48,13 +37,9 @@ export class NewCreateComponent {
       }
     );
   }
-
   onCancel() {
     console.log('Form canceled');
-    // Add logic to reset or navigate back if necessary
   }
-
-  // Convert image file to Base64
   convertToBase64(file: File): void {
     const reader = new FileReader();
     reader.onloadend = () => {
