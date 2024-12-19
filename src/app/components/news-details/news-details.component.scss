@@ -1,0 +1,53 @@
+.embla {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  position: relative;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  padding: 10px;
+}
+
+.embla__slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.embla__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #064D31;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 24px;
+  z-index: 10;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.embla__button--prev {
+  left: -50px;
+}
+
+.embla__button--next {
+  right: -50px; 
+}

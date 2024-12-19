@@ -1,14 +1,59 @@
-<article class="body-font h-auto mx-auto max-w-[1223px] overflow-visible !rounded-xl border border-solid border-white/15 text-gray-600 ">
+<article class="body-font h-auto mx-auto max-w-[1223px] overflow-visible !rounded-xl border border-solid border-white/15 text-gray-600">
+    <div class="container mx-auto max-w-[1024px] px-5 py-14">
+        <h2 class="mb-4 text-center !text-3xl tracking-tight text-[#064d31]">
+            {{ blogData.title }}
+        </h2>
+        <p class="mt-4 text-end">
+            {{ currentWeekName }}, {{ fullFormattedDate }}
+        </p>
+
+        <section class="embla mt-4 relative">
+            <button (click)="goToPrevSlide()" class="embla__button embla__button--prev" type="button">
+                &lt;
+            </button>
+
+            <div class="embla__viewport" #emblaViewport>
+                <div class="embla__container">
+                    <div class="embla__slide" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+                        <img [src]="blogData.imageUrl" alt="Cover Image" class="h-auto w-full object-cover shadow-md" />
+                    </div>
+                </div>
+            </div>
+
+            <button (click)="goToNextSlide()" class="embla__button embla__button--next" type="button">
+                &gt;
+            </button>
+        </section>
+
+        <div class="py-2">
+            <div class="mt-8 text-base">
+                <p>{{ blogData.content }}</p>
+            </div>
+            <div class="mt-1 text-base">
+                <p>{{ blogData.content }}</p>
+            </div>
+        </div>
+
+        <a onclick="history.back()" class="m-5 inline-flex items-center cursor-pointer rounded-full border bg-gradient-to-r from-green to-blue-500 px-6 py-2 text-sm font-medium shadow-md transition-all duration-200 hover:from-green-600 hover:to-green-200 hover:shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="-rotate-90 fill-current">
+                <path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"></path>
+            </svg>
+            Back to News
+        </a>
+    </div>
+</article>
+
+
+
+<!-- <article class="body-font h-auto mx-auto max-w-[1223px] overflow-visible !rounded-xl border border-solid border-white/15 text-gray-600 ">
     <div class="container mx-auto max-w-[1024px] px-5 py-14">
         <h2 class="mb-4 text-center  !text-3xl tracking-tight text-[#064d31]">
             {{ blogData.title }}
         </h2>
                     <p class="mt-4 text-end "> {{ currentWeekName }}, {{ fullFormattedDate }}</p>
-
 <div class="mt-4">
     <img [src]="blogData.imageUrl" alt="Cover Image" class="h-auto w-full object-cover lg:object-fit shadow-md" />
         </div>
-
         <div class="py-2">
             <div class="mt-8 text-base ">
                 <p>{{ blogData.content }}</p>
@@ -16,9 +61,7 @@
             <div class="mt-1 text-base ">
                 <p>{{ blogData.content }}</p>
             </div>
-
         </div>
-
         <a onclick="history.back()" class="m-5 inline-flex items-center cursor-pointer rounded-full border bg-gradient-to-r from-green to-blue-500 px-6 py-2 text-sm font-medium  shadow-md transition-all duration-200 hover:from-green-600  hover:to-green-200 hover:shadow-lg">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="-rotate-90 fill-current ">
                 <path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z"></path>
@@ -26,4 +69,4 @@
             Back to News
         </a>
     </div>
-</article>
+</article> -->
