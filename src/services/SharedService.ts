@@ -21,7 +21,7 @@ export class SharedService {
             create_By: news.create_By,
             news_Images: Array.isArray(news.news_Images) ? news.news_Images : [news.news_Images],
         };
-        return this.http.post<any>(`${this.APIUrl}news`, payload);
+        return this.http.post<any>(`${this.APIUrl}news/create`, payload);
     }
     updateNews(id: number, news: any): Observable<any> {
         const payload = {
