@@ -83,6 +83,9 @@ export class CreateModalComponent {
   ngOnChanges(): void {
     if (this.news.id) {
       this.formData = { ...this.news };
+    } else {
+      this.resetForm();
     }
   }
+
 }
