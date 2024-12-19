@@ -7,23 +7,46 @@
             {{ currentWeekName }}, {{ fullFormattedDate }}
         </p>
 
-        <section class="embla mt-4 relative">
-            <button (click)="goToPrevSlide()" class="embla__button embla__button--prev" type="button">
-                &lt;
-            </button>
-
-            <div class="embla__viewport" #emblaViewport>
-                <div class="embla__container">
-                    <div class="embla__slide" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
-                        <img [src]="blogData.imageUrl" alt="Cover Image" class="h-auto w-full object-cover shadow-md" />
+    <section class="embla mt-4 relative">
+        <button (click)="goToPrevSlide()" class="embla__button embla__button--prev" type="button">
+            &lt;
+        </button>
+    
+        <div class="embla__viewport" #emblaViewport>
+            <div class="embla__container">
+                <div class="embla__slide" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+                    <div class="relative">
+                        <img [src]="blogData.imageUrl" alt="Cover Image" class="h-auto w-full object-cover" />
+                        <div class="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-30"></div>
                     </div>
                 </div>
             </div>
+        </div>
+    
+        <button (click)="goToNextSlide()" class="embla__button embla__button--next" type="button">
+            &gt;
+        </button>
+    </section>
+    
+<!-- <section class="embla mt-4 relative">
+    <button (click)="goToPrevSlide()" class="embla__button embla__button--prev" type="button">
+        &lt;
+    </button>
 
-            <button (click)="goToNextSlide()" class="embla__button embla__button--next" type="button">
-                &gt;
-            </button>
-        </section>
+    <div class="embla__viewport h-[300px] overflow-hidden" #emblaViewport2>
+        <div class="embla__container flex">
+            <div class="embla__slide flex-shrink-0" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">
+                <img [src]="blogData.imageUrl" alt="Cover Image" class="h-[100px] w-[50px] object-cover shadow-md" />
+            </div>
+        </div>
+    </div>
+
+    <button (click)="goToNextSlide()" class="embla__button embla__button--next" type="button">
+        &gt;
+    </button>
+</section> -->
+
+
 
         <div class="py-2">
             <div class="mt-8 text-base">

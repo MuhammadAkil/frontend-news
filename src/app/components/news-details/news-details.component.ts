@@ -24,11 +24,21 @@ export class NewsDetailsComponent implements AfterViewInit, OnDestroy {
   fullFormattedDate: string = `${this.currentYear}-${this.formatDate(this.currentMonth)}-${this.formatDate(this.currentDay)}`;
 
   @ViewChild('emblaViewport') emblaViewport!: ElementRef;
+  @ViewChild('emblaViewport2') emblaViewport2!: ElementRef;
   emblaCarousel!: EmblaCarouselType;
+  emblaCarousel2!: EmblaCarouselType;
   intervalId: any;
 
   ngAfterViewInit(): void {
     this.emblaCarousel = EmblaCarousel(this.emblaViewport.nativeElement, {});
+    this.emblaCarousel2 = EmblaCarousel(this.emblaViewport2.nativeElement, {});
+
+    // Sync the carousels using selectedScrollSnap
+    this.emblaCarousel.on('select', () => {
+      const selectedIndex = this.emblaCarousel.selectedScrollSnap();
+      this.emblaCarousel2.scrollTo(selectedIndex);
+    });
+
     this.startAutoScroll();
   }
 
@@ -38,15 +48,18 @@ export class NewsDetailsComponent implements AfterViewInit, OnDestroy {
 
   goToPrevSlide(): void {
     this.emblaCarousel.scrollPrev();
+    this.emblaCarousel2.scrollPrev();
   }
 
   goToNextSlide(): void {
     this.emblaCarousel.scrollNext();
+    this.emblaCarousel2.scrollNext();
   }
 
   startAutoScroll(): void {
     this.intervalId = setInterval(() => {
       this.emblaCarousel.scrollNext();
+      this.emblaCarousel2.scrollNext();
     }, 4000);
   }
 
