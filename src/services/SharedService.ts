@@ -19,7 +19,7 @@ export class SharedService {
             content: news.content,
             date: news.date,
             create_By: news.create_By,
-            news_Images: Array.isArray(news.image) ? news.image : [news.image], 
+            news_Images: Array.isArray(news.news_Images) ? news.news_Images : [news.news_Images],
         };
         return this.http.post<any>(`${this.APIUrl}news`, payload);
     }
