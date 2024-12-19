@@ -35,14 +35,16 @@
                     <input type="file" id="images" (change)="onMultipleFilesSelected($event)" accept="image/*" multiple class="w-full opacity-0 absolute inset-0 cursor-pointer" />
                 </div>
             </div>
-            <div class="flex items-center space-x-4">
-                <label for="date" class="block text-sm font-medium w-[80px]">Date</label>
-                <mat-form-field class="w-3/4" appearance="outline">
-                    <input id="date" matInput [matDatepicker]="picker" [(ngModel)]="news.date" name="date" required />
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
-            </div>
+        <div class="flex items-center space-x-4">
+            <label for="date" class="block text-sm font-medium w-[80px]">Date</label>
+            <mat-form-field class="w-3/4" appearance="outline">
+                <input id="date" matInput [matDatepicker]="picker" [(ngModel)]="news.date" name="date" required [max]="currentDate" 
+                />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
             <div class="flex items-start space-x-4">
                 <label for="content" class="block text-sm font-medium mt-1 w-[80px]">Content</label>
             <textarea id="content" rows="4" class="w-3/4 border border-gray-300 rounded-md px-4 py-2 outline-none focus:ring focus:ring-green-200" [(ngModel)]="formData.content" name="content" placeholder="Type here" required></textarea>

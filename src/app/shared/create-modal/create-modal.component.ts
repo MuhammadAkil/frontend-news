@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges,OnInit } from '@angular/core';
 import { SharedService } from 'src/services/SharedService';
 import { NewModel } from 'src/models/news.model';
 
@@ -8,6 +8,7 @@ import { NewModel } from 'src/models/news.model';
   styleUrls: ['./create-modal.component.scss'],
 })
 export class CreateModalComponent implements OnChanges {
+  currentDate!: string;
   @Input() isVisible = false;
   @Input() news: NewModel = new NewModel(0, '', '', '', new Date(), 0, []);
   @Output() closeModal = new EventEmitter<void>();
@@ -18,6 +19,11 @@ export class CreateModalComponent implements OnChanges {
   imagePreviews: string[] = [];
 
   constructor(private sharedService: SharedService) { }
+
+  ngOnInit(): void {
+    const today = new Date();
+    this.currentDate = today.toISOString().split('T')[0];
+  }
 
   ngOnChanges(): void {
     if (this.news.id) {
